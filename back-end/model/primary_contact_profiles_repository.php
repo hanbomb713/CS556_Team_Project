@@ -12,8 +12,7 @@ class PrimaryContactProfilesRepository {
     // return all records as an array
     public static function getPrimaryContactProfiles() {
         global $db;
-        $query = 'SELECT * FROM daycaredb.primary_contact_profiles'
-                . 'ORDER BY id'; //'OREDER
+        $query = 'SELECT * FROM daycaredb.primary_contact_profiles' 'ORDER BY id';
         $result = $db->query($query);
         $primaryContactProfiles = array();
         foreach ($result as $row) {
@@ -91,7 +90,7 @@ class PrimaryContactProfilesRepository {
         $cell_phone_number = $primaryContactProfile->getCell_phone_number();
         $work_phone_number = $primaryContactProfile->getWork_phone_number();
         $note = $primaryContactProfile->getNote();
-        $query = "INSERT INTO daycaredb.primary_contact_profiles (id, relationship, first_name, last_name, 
+        $query = "INSERT INTO daycaredb.primary_contact_profiles (NULL, relationship, first_name, last_name, 
                 chinese_name, age, language_spoken, occupation, employer, primary_email, additional_email, cell_phone_number,
                 work_phone_number, note) 
                 VALUES ($id, $relationship, $first_name, $last_name, 
