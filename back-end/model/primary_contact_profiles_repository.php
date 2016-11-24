@@ -89,10 +89,10 @@ class PrimaryContactProfilesRepository {
         $query = "INSERT INTO daycaredb.primary_contact_profiles (relationship, first_name, last_name, 
                 chinese_name, age, language_spoken, occupation, employer, primary_email, additional_email, cell_phone_number,
                 work_phone_number, note) 
-                VALUES ($relationship, $first_name, $last_name, 
-                $chinese_name, $age, $language_spoken, $occupation, $employer, $primary_email, $additional_email, $cell_phone_number,
-                $work_phone_number, $note)";
-        $db->exec($query);
+                VALUES ('$relationship', '$first_name', '$last_name', 
+                '$chinese_name', '$age', '$language_spoken', '$occupation', '$employer', '$primary_email', '$additional_email', '$cell_phone_number',
+                '$work_phone_number', '$note')";
+        $db->exec($query) or die(print_r($db->errorinfo(), true));
         $query = "SELECT last_insert_id();";
         $primaryContactProfileId = $db->exec($query);
         return $primaryContactProfileId;
